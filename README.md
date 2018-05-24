@@ -156,7 +156,8 @@ In this section we talk about problem and use 2 images for the scene called FEW
             </section>
  ```
 
-##### section 3: FEW2
+##### section 3: FEW2 
+talk about the reasons of using InterACTWEL
  ![](img/wel.jpg)
 ```html
 <section data-scene="FEW2">
@@ -292,5 +293,81 @@ In the last page we use the below code and also image
             </section>
 ```
 
+## Defining layers
+
+we introduce 3 different base map layers and also add data
+
+```html
+
+   var layers = {
+        Stations: {
+            layer: L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/mapious/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ore_counties&outputFormat=application%2Fjson', {
+                color: 'orange',
+                weight: 2,
+                opacity: 0.3
+            })
+        },
+        Umatilla: {
+            layer: L.geoJson.ajax('assets/umatilla.geojson', {
+                color: 'red',
+                weight: 2,
+                opacity: 0.3
+            })
+        },
+       Streams: {
+           layer: L.geoJson.ajax('assets/Streams.geojson', {
+               color: 'blue',
+               weight: 2,
+               opacity: 0.3
+           })
+       },
+       Watersheds: {
+           layer: L.geoJson.ajax('assets/watersheds.geojson', {
+               color: 'blue',
+               weight: 2,
+               opacity: 0.3
+           })
+       },
+        satellite: {
+            layer: L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamFrb2J6aGFvIiwiYSI6ImNpcms2YWsyMzAwMmtmbG5icTFxZ3ZkdncifQ.P9MBej1xacybKcDN_jehvw', {
+                id: 'mapbox.satellite'
+            })
+        },
 
 
+
+
+
+       cartodb_dark: {layer:L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+           maxZoom: 19,
+           attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
+
+       })}
+    }
+```
+
+In next step we define scenes
+```
+ var scenes = {
+        overview: {lat: 45.899522, lng: -119.305170, zoom: 9, name: 'Cover Page'},
+        FEW: {lat: 44.312742, lng: -124.103032, zoom: 7, name: 'FEW',layers: ['Stations']},
+        FEW2: {lat: 45.899522, lng: -119.305170, zoom: 9, name: 'FEW',layers: ['Stations']},
+        FEW3: {lat: 45.899522, lng: -119.305170, zoom: 9, name: 'FEW3',layers: ['Umatilla', 'Streams', 'Watersheds', 'satellite'] },
+        end: {lat: 45.899522, lng: -119.305170, zoom: 14, name: 'The End'}
+    };
+ ```
+ Finally define the story map elements
+  ```
+   $('#storymap').storymap({
+         scenes: scenes,
+         layers: layers,
+         baselayer: layers.cartodb_dark,
+         legend: true, // if you do not want a legend feature, you can simply not define the createLegend function.
+         credits:  "Created by Majid Farahani, 2018",
+         loader: true,
+         scalebar: true,
+         navwidget: true,
+         flyto: false,
+         scrolldown: true,
+         progressline: true
+          ```
