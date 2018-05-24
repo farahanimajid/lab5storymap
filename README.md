@@ -1,8 +1,8 @@
 # lab5storymap
-
+## [InterACTWEL](https://farahanimajid.github.io/lab5storymap/)
 
 **Story map**| **May 22, 2018** | **InterACTWEL** | **Contributors:** 
-[Majid Farahani](https://farahanimajid.github.io/lab5storymap/)
+[Majid Farahani](https://github.com/farahanimajid)
 
 ![](img/pict.png)
 
