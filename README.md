@@ -19,7 +19,7 @@ to envision and plan towards a resilient future for their local
     management concerns and the types of information needed to
      make more informed management decisions and long-term plans.
 
- ###Set up the workspace
+ ### Set up the workspace
  The basic folder structure to generate a story map should be as follows:
    ```powershell
    lab5
@@ -210,7 +210,7 @@ talk about the reasons of using InterACTWEL
 
 
 
-section 4: FEW3
+##### section 4: FEW3
 in this section we add the geojason files including watersheds and streams in Umatilla
 
 ```html
@@ -235,7 +235,7 @@ in this section we add the geojason files including watersheds and streams in Um
             </section>
 ```
 
-section 5: FEW4
+##### section 5: FEW4
 
 ```html
  <section data-scene="FEW4">
@@ -252,7 +252,7 @@ section 5: FEW4
             </section>
 ```
 
-section 6: FEW5
+##### section 6: FEW5
 A video from youtube  added to our scene and also another video was addresed using link
 
 ![](img/few5.PNG)
@@ -271,7 +271,7 @@ A video from youtube  added to our scene and also another video was addresed usi
             </section>
 ```
 
-section 7: END
+##### section 7: END
 In the last page we use the below code and also image
 ![](img/water2.jpg)
 ```html
@@ -345,7 +345,7 @@ we introduce 3 different base map layers and also add data
        })}
     }
 ```
-
+## Scenes
 In next step we define scenes
 ```
  var scenes = {
@@ -356,6 +356,8 @@ In next step we define scenes
         end: {lat: 45.899522, lng: -119.305170, zoom: 14, name: 'The End'}
     };
  ```
+ 
+## Story map elements
  Finally define the story map elements
   ```
    $('#storymap').storymap({
